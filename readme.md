@@ -1,5 +1,5 @@
 # Cours de React avec AchilloTech
-## 1.Première notion 
+## 1.Première notion  de composante
    - Une composante
    - props
    - type de donné
