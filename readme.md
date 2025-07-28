@@ -13,7 +13,8 @@
 - Considérer un tableau de plusieurs json `TEXTES=[{ "id":"0123jlh", "text":"fvghj"}.. ]`
   dans APP.tsx
 - Il existait un composant qui demandes de 'text' en paramèttre `<Message texte='lorem1'/>`
-- Creér un autre composant `<Messages messages={TEXTES} />` en utikisant la methode map:
+- Creér un autre composant `<Messages messages={TEXTES}/>` en utilisant la methode map:
+nous pouvons impliquer le composant `<Message texte={message.texte}/>` dans `<Messages messages={TEXTES} />`
 
 ```
 import Message from "../components/Message";
