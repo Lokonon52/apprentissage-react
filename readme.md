@@ -16,7 +16,7 @@
 - Creér un autre composant `<Messages messages={TEXTES}/>` en utilisant la methode map:
 nous pouvons impliquer le composant `<Message texte={message.texte}/>` dans `<Messages messages={TEXTES} />`
 
-```
+```tsx
 import Message from "../components/Message";
 
 type Message = {

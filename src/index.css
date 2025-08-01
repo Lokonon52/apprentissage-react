@@ -1,5 +1,24 @@
-.message{ background: rgb(177, 189, 124);
- border: 3px solid black;
- margin-top: 2px;
+.message {
+  background: rgb(177, 189, 124);
+  border: 3px solid black;
+  margin-top: 2px;
+}
+.user {
+  display: flex;
+  justify-content: space-evenly;
+  border: 3px solid rgb(230, 101, 187);
+  border-radius: 13px;
+}
 
+.users {
+  border: 3px solid rgb(101, 131, 230);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+ul {
+  margin-top: 100px;
+}
+.profile {
+  text-align: center;
 }

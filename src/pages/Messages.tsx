@@ -16,7 +16,6 @@ function Messages(props: Props) {
     
 messages.map( message => <Message texte={message.texte}/> )
   
-
   );
 }
 export default Messages;
