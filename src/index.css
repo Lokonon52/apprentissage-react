@@ -1,7 +1,12 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .message {
   background: rgb(177, 189, 124);
   border: 3px solid black;
-  margin-top: 2px;
+  
 }
 .user {
   display: flex;
@@ -16,9 +21,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 5px;
 }
-ul {
-  margin-top: 100px;
-}
+
 .profile {
   text-align: center;
 }

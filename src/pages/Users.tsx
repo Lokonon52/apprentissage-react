@@ -15,7 +15,7 @@ type Props={
 
 export const Users = (props:Props) => {
   return (
-    <div className="users">
+    <div className="users text-black " >
       { 
 props.users.map(user=><User avatar={user.avatar} name={user.name} email={user.email} id={user.id}/> )
   }
