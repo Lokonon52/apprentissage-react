@@ -72,11 +72,32 @@ export default Messages;
 ## 3.TailwindCSS avec react&vite
 * Le lien pour installerTailwindCSS avec react&vite
  [https://v3.tailwindcss.com/docs/guides/vite](https://v3.tailwindcss.com/docs/guides/vite).
-1. Installez Tailwind CSS et ses dépendances associées via npm.
+ ### 1. Installez Tailwind CSS et ses dépendances associées via npm.
  ```bash 
  npm install -D tailwindcss@3 postcss autoprefixer
    ```
-  2.Générez les fichiers tailwind.config.js et postcss.config.js via npx.
+ ### 2. Générez les fichiers tailwind.config.js et postcss.config.js via npx.
  ```bash 
 npx tailwindcss init -p
    ```
+   ###  3. Ajoutez les chemins vers tous vos fichiers de template dans votre fichier
+    tailwind.config.js.
+  ``` js
+  /** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+  ```
+### 4. Joutez les directives @tailwind pour chaque couche de Tailwind dans votre fichier ./src/index.css.
+  ```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
