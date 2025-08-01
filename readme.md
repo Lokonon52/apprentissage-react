@@ -15,8 +15,36 @@
 - Il existait un composant qui demandes de 'text' en paramèttre `<Message texte='lorem1'/>`
 - Creér un autre composant `<Messages messages={TEXTES}/>` en utilisant la methode map:
 nous pouvons impliquer le composant `<Message texte={message.texte}/>` dans `<Messages messages={TEXTES} />`
+- -------La composantes  Messages  dans src/components/Message.tsx---------------------------
+```  tsx
+import Message from "../components/Message";
 
+type Message = {
+  id: string;
+  texte: string;
+ 
+};
+type Props = {
+messages:Message[]
+};
+
+
+function Messages(props: Props) {
+    const messages=props.messages
+  return (
+    
+messages.map( message => <Message texte={message.texte}/> )
+  
+  );
+}
+export default Messages;
+
+
+
+ ```
+- -------La composantes  Messages  dans src/pages/Messages.tsx---------------------------
 ```tsx
+
 import Message from "../components/Message";
 
 type Message = {
