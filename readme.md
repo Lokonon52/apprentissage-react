@@ -69,3 +69,14 @@ messages.map( message => <Message texte={message.texte}/> )
 export default Messages;
 
 ```
+## 3.TailwindCSS avec react&vite
+* Le lien pour installerTailwindCSS avec react&vite
+ [https://v3.tailwindcss.com/docs/guides/vite](https://v3.tailwindcss.com/docs/guides/vite).
+1. Installez Tailwind CSS et ses dépendances associées via npm.
+ ```bash 
+ npm install -D tailwindcss@3 postcss autoprefixer
+   ```
+  2.Générez les fichiers tailwind.config.js et postcss.config.js via npx.
+ ```bash 
+npx tailwindcss init -p
+   ```
