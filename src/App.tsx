@@ -6,7 +6,7 @@ function App() {
   
 
   return (
-<div className="container mx-auto  bg-slate-400">
+<div className="container mx-auto mt-16 gap-4 ">
  
   <Messages messages={TEXTES} />
 

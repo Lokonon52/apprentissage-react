@@ -7,7 +7,7 @@ type Props = {
 
 function User(props: Props) {
   return (
-    <div className="user">
+    <div className="items-center border-orange-300 border-solid border-4 rounded-2xl bg-zinc-50 flex justify-evenly">
       {props?.avatar ? (
         <div className="img">
           <p className="profile">profile{props.id}</p>

@@ -15,7 +15,7 @@ type Props={
 
 export const Users = (props:Props) => {
   return (
-    <div className="users text-black " >
+    <div className="grid gap-3 text-black sm:grid-cols-1 md:grid-cols-2 " >
       { 
 props.users.map(user=><User avatar={user.avatar} name={user.name} email={user.email} id={user.id}/> )
   }

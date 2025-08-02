@@ -8,7 +8,7 @@ type Props = {
 
 function Message(props: Props) {
   return (
-    <div className="message">
+    <div className=" border-red-300 border-solid border-4">
     
     <h4>Texte: {props.texte}</h4>    
       {props?.firstname || props?.lastname ? (
