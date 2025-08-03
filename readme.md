@@ -123,4 +123,39 @@ export default App
  ```
 
  ## 4. Destructurer les Objects
- 
+```tsx
+
+type Props = {
+  firstname?: string;
+  lastname?: string;
+  age?: number;
+  email?: string;
+  texte: string;
+  favoriteFruit?: string;
+};
+
+function Message({ firstname, lastname, age, email, texte, favoriteFruit='inconnue' }: Props) {
+  return (
+    <div className="border-red-300 border-solid border-4">
+      <h4>{texte}</h4>
+
+      {firstname || lastname ? (
+        <h1>
+          Auteurs {firstname} {lastname}
+        </h1>
+      ) : null}
+
+      {age && <p>age: {age}</p>}
+      {email && <p>email: {email}</p>}
+
+      <h2 className="text-base font-semibold text-blue-400">
+        <span className="text-base font-thin text-black">Fruit:</span>
+        {favoriteFruit}
+      </h2>
+      <hr />
+    </div>
+  );
+}
+
+export default Message;
+```
