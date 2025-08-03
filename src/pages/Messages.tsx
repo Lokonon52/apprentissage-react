@@ -1,8 +1,9 @@
 import Message from "../components/Message";
 
 type Message = {
-  id: string;
-  texte: string;
+   id: string;
+   texte: string;
+   favoriteFruit?:string;
  
 };
 type Props = {
@@ -10,11 +11,11 @@ messages:Message[]
 };
 
 
-function Messages(props: Props) {
-    const messages=props.messages
+function Messages({ messages}: Props) {
+   // const { messages}=props
   return (
     
-messages.map( message => <Message texte={message.texte}/> )
+messages.map( ({texte,favoriteFruit}) =><Message texte={texte} favoriteFruit={favoriteFruit}/> )
   
   );
 }

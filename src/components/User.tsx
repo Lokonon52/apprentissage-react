@@ -10,7 +10,7 @@ function User(props: Props) {
     <div className="items-center border-orange-300 border-solid border-4 rounded-2xl bg-zinc-50 flex justify-evenly">
       {props?.avatar ? (
         <div className="img">
-          <p className="profile">profile{props.id}</p>
+          <p className="text-2xl font-extrabold">profile{props.id}</p>
           <img src={props.avatar} alt={props.name} />
         </div>
       ) : null}

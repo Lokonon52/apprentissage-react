@@ -15,7 +15,7 @@ const TEXTES=[
     "id": "6886b29dfae9e64d66d21216",
     "texte": "reprehenderit est sunt sit ea velit aliqua voluptate occaecat duis dolor anim sit amet anim qui aliqua dolor pariatur et",
     "greeting": "Hello, undefined! You have 9 unread messages.",
-    "favoriteFruit": "banana"
+    
   },
   {
     "id": "6886b29d0ec726a88412e2a4",
