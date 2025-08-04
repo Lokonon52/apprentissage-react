@@ -14,8 +14,10 @@ messages:Message[]
 function Messages({ messages}: Props) {
    // const { messages}=props
   return (
-    
-messages.map( ({texte,favoriteFruit}) =><Message texte={texte} favoriteFruit={favoriteFruit}/> )
+    <div className="mb-32">
+      { messages.map( ({texte,favoriteFruit}) =><Message texte={texte} favoriteFruit={favoriteFruit}/> )}
+    </div>
+
   
   );
 }
