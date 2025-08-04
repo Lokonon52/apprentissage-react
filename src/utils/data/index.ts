@@ -1,3 +1,5 @@
+
+
 const TEXTES=[
   {
     "id": "6886b29d3c2dd8052ae48789",
@@ -60,67 +62,221 @@ const TEXTES=[
     "favoriteFruit": "strawberry"
   }
 ]
-const USERS=[
+
+
+import type { UserType } from "../../pages/Users";
+const USERS:UserType[] = [
   {
-    "id": 1,
-    "name": "Alice Dupont",
-    "email": "alice.dupont@example.com",
-    "avatar": "https://i.pravatar.cc/150?img=1"
+    id: 1,
+    name: "Bruno Dupont",
+    email: "Bruno.dupont@example.com",
+    avatar: "https://i.pravatar.cc/150?img=1",
+    sexe: "homme"
   },
   {
-    "id": 2,
-    "name": "Bruno Martin",
-    "email": "bruno.martin@example.com",
-    "avatar": "https://i.pravatar.cc/150?img=2"
+    id: 2,
+    name: " Martine",
+    email: ".martin@example.com",
+    avatar: "https://i.pravatar.cc/150?img=2",
+    sexe: "femme"
   },
   {
-    "id": 3,
-    "name": "Chloé Bernard",
-    "email": "chloe.bernard@example.com",
-    "avatar": "https://i.pravatar.cc/150?img=3"
+    id: 3,
+    name: " Bernard",
+    email: "bernard@example.com",
+    avatar: "https://i.pravatar.cc/150?img=3",
+    sexe: "homme"
   },
   {
-    "id": 4,
-    "name": "David Lefevre",
-    "email": "david.lefevre@example.com",
-    "avatar": "https://i.pravatar.cc/150?img=4"
+    id: 4,
+    name: "David Lefevre",
+    email: "david.lefevre@example.com",
+    avatar: "https://i.pravatar.cc/150?img=4",
+    sexe: "homme"
   },
   {
-    "id": 5,
-    "name": "Emma Moreau",
-    "email": "emma.moreau@example.com",
-    "avatar": "https://i.pravatar.cc/150?img=5"
+    id: 5,
+    name: "Emma Moreau",
+    email: "emma.moreau@example.com",
+    avatar: "https://i.pravatar.cc/150?img=5",
+    sexe: "femme"
   },
   {
-    "id": 6,
-    "name": "François Garcia",
-    "email": "francois.garcia@example.com",
-    "avatar": "https://i.pravatar.cc/150?img=6"
+    id: 6,
+    name: "François Garcia",
+    email: "francois.garcia@example.com",
+    avatar: "https://i.pravatar.cc/150?img=6",
+    sexe: "homme"
   },
   {
-    "id": 7,
-    "name": "Gabrielle Petit",
-    "email": "gabrielle.petit@example.com",
-    "avatar": "https://i.pravatar.cc/150?img=7"
+    id: 7,
+    name: "Gabriel Petit",
+    email: "gabriel.petit@example.com",
+    avatar: "https://i.pravatar.cc/150?img=7",
+    sexe: "homme"
   },
   {
-    "id": 8,
-    "name": "Hugo Laurent",
-    "email": "hugo.laurent@example.com",
-    "avatar": "https://i.pravatar.cc/150?img=8"
+    id: 8,
+    name: "Hugo Laurent",
+    email: "hugo.laurent@example.com",
+    avatar: "https://i.pravatar.cc/150?img=8",
+    sexe: "homme"
   },
   {
-    "id": 9,
-    "name": "Isabelle Roux",
-    "email": "isabelle.roux@example.com",
-    "avatar": "https://i.pravatar.cc/150?img=9"
+    id: 9,
+    name: "Isabelle Roux",
+    email: "isabelle.roux@example.com",
+    avatar: "https://i.pravatar.cc/150?img=9",
+    sexe: "femme"
   },
   {
-    "id": 10,
-    "name": "Julien Fabre",
-    "email": "julien.fabre@example.com",
-    "avatar": "https://i.pravatar.cc/150?img=10"
+    id: 10,
+    name: "Julienne Fabre",
+    email: "julienne.fabre@example.com",
+    avatar: "https://i.pravatar.cc/150?img=10",
+    sexe: "femme"
+  },
+  {
+    id: 11,
+    name: "Karin Lemoine",
+    email: "karin.lemoine@example.com",
+    avatar: "https://i.pravatar.cc/150?img=11",
+    sexe: "homme"
+  },
+  {
+    id: 12,
+    name: "Léo Giraud",
+    email: "leo.giraud@example.com",
+    avatar: "https://i.pravatar.cc/150?img=12",
+    sexe: "homme"
+  },
+  {
+    id: 13,
+    name: "Manon Dumas",
+    email: "manon.dumas@example.com",
+    avatar: "https://i.pravatar.cc/150?img=13",
+    sexe: "homme"
+  },
+  {
+    id: 14,
+    name: "Nicolas Chevalier",
+    email: "nicolas.chevalier@example.com",
+    avatar: "https://i.pravatar.cc/150?img=14",
+    sexe: "homme"
+  },
+  {
+    id: 15,
+    name: "Océan Renaud",
+    email: "ocean.renaud@example.com",
+    avatar: "https://i.pravatar.cc/150?img=15",
+    sexe: "homme"
+  },
+  {
+    id: 16,
+    name: "Pauline Lefort",
+    email: "pauline.lefort@example.com",
+    avatar: "https://i.pravatar.cc/150?img=16",
+    sexe: "femme"
+  },
+  {
+    id: 17,
+    name: "Quitterie Charles",
+    email: "quitterie.charles@example.com",
+    avatar: "https://i.pravatar.cc/150?img=17",
+    sexe: "homme"
+  },
+  {
+    id: 18,
+    name: "Raphaël Fontaine",
+    email: "raphael.fontaine@example.com",
+    avatar: "https://i.pravatar.cc/150?img=18",
+    sexe: "homme"
+  },
+  {
+    id: 19,
+    name: "Sophie Marchand",
+    email: "sophie.marchand@example.com",
+    avatar: "https://i.pravatar.cc/150?img=19",
+    sexe: "femme"
+  },
+  {
+    id: 20,
+    name: "Thomas Noël",
+    email: "thomas.noel@example.com",
+    avatar: "https://i.pravatar.cc/150?img=20",
+    sexe: "femme"
+  },
+  {
+    id: 21,
+    name: "Ursule Leblanc",
+    email: "ursule.leblanc@example.com",
+    avatar: "https://i.pravatar.cc/150?img=21",
+    sexe: "femme"
+  },
+  {
+    id: 22,
+    name: "Vincent Meunier",
+    email: "vincent.meunier@example.com",
+    avatar: "https://i.pravatar.cc/150?img=22",
+    sexe: "homme"
+  },
+  {
+    id: 23,
+    name: "Wendy Caron",
+    email: "wendy.caron@example.com",
+    avatar: "https://i.pravatar.cc/150?img=23",
+    sexe: "femme"
+  },
+  {
+    id: 24,
+    name: "Xavier Leclerc",
+    email: "xavier.leclerc@example.com",
+    avatar: "https://i.pravatar.cc/150?img=24",
+    sexe: "femme"
+  },
+  {
+    id: 25,
+    name: "Yasmine Paris",
+    email: "yasmine.paris@example.com",
+    avatar: "https://i.pravatar.cc/150?img=25",
+    sexe: "femme"
+  },
+  {
+    id: 26,
+    name: "Tacharie Didier",
+    email: "Tacharie.didier@example.com",
+    avatar: "https://i.pravatar.cc/150?img=26",
+    sexe: "femme"
+  },
+  {
+    id: 27,
+    name: "Amélie Barre",
+    email: "amelie.barre@example.com",
+    avatar: "https://i.pravatar.cc/150?img=27",
+    sexe: "femme"
+  },
+  {
+    id: 28,
+    name: "Bastienne Lucas",
+    email: "bastienne.lucas@example.com",
+    avatar: "https://i.pravatar.cc/150?img=28",
+    sexe: "femme"
+  },
+  {
+    id: 29,
+    name: "Célia Michel",
+    email: "celia.michel@example.com",
+    avatar: "https://i.pravatar.cc/150?img=29",
+    sexe: "femme"
+  },
+  {
+    id: 30,
+    name: "Damienne Blin",
+    email: "damienne.blin@example.com",
+    avatar: "https://i.pravatar.cc/150?img=30",
+    sexe: "femme"
   }
-]
+];
+
 
 export{ USERS,TEXTES}

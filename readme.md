@@ -72,9 +72,7 @@ npm install -D tailwindcss@3 postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-#### 3. Ajoutez les chemins vers tous vos fichiers de template dans votre fichier
-
-    tailwind.config.js.
+#### 3. Ajoutez les chemins vers tous vos fichiers de template dans votre fichier tailwind.config.js.
 
 ```js
 /** @type {import('tailwindcss').Config} */
@@ -159,3 +157,7 @@ function Message({ firstname, lastname, age, email, texte, favoriteFruit='inconn
 
 export default Message;
 ```
+
+ ## 5. Gestion  des évènements
+
+ ## 4. Destructurer les Objects

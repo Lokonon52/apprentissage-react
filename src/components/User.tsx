@@ -1,24 +1,29 @@
+
+type Sexe="homme"|"femme";
+
 type Props = {
   id?: number;
   name?: string;
   email?: string;
+  sexe?:Sexe;
   avatar?: string;
 };
 
-function User(props: Props) {
+function User({ id,name,email,sexe,avatar}: Props) {
   return (
-    <div className="items-center border-orange-300 border-solid border-4 rounded-2xl bg-zinc-50 flex justify-evenly">
-      {props?.avatar ? (
+    <div className="bg-zinc-50 border-zinc-200 border-2 rounded-lg text-zinc-800 items-center flex justify-evenly">
+      {avatar ? (
         <div className="img">
-          <p className="text-2xl font-extrabold">profile{props.id}</p>
-          <img src={props.avatar} alt={props.name} />
+          <p className="text-2xl font-extrabold">profile{id}</p>
+          <img src={avatar} alt={name} />
         </div>
       ) : null}
 
-      {props?.name ? (
+      {name || email || sexe ? (
         <ul>
-          <li>{props.name}</li>
-          <li>{props.email}</li>
+          <li>{name}</li>
+          <li>{email}</li>
+          <li className=" w-1/2  px-5 text-base text-fuchsia-600 bg-slate-50 border-zinc-200 border-2 rounded-lg">{sexe}</li>
         </ul>
       ) : null}
     </div>

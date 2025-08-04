@@ -1,9 +1,10 @@
 import User from "../components/User";
-
-type UserType = {
+type Sexe="homme"|"femme";
+export type UserType = {
   id: number;
   name: string;
   email: string;
+  sexe?:Sexe;
   avatar: string;
 };
 
@@ -16,8 +17,8 @@ export const Users = (props: Props) => {
 
   return (
     <div className="grid gap-3 text-black sm:grid-cols-1 md:grid-cols-2">
-      {users.map(({ id, name, email, avatar }: UserType) => (
-        <User key={id} avatar={avatar} name={name} email={email} id={id} />
+      {users.map(({ id, name, email,sexe, avatar }: UserType) => (
+        <User key={id} avatar={avatar} name={name} email={email} sexe={sexe?.toUpperCase() as Sexe} id={id} />
         //Ajoute toujours une key quand tu fais un .map() dans React :
       ))}
     </div>
