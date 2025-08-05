@@ -159,5 +159,32 @@ export default Message;
 ```
 
  ## 5. Gestion  des évènements
+ ```tsx
 
- ## 4. Destructurer les Objects
+  //fonction
+  const sortBy = (field: string) => {
+    console.log(field);
+    usersSorted.sort()
+  };
+
+ <button
+          className=" bg-emerald-300  border-solid border-zinc-400 border-2 rounded-lg px-3 hover:bg-emerald-100"
+          type="button"
+           onClick={()=> {sortBy('homme')}} //évènement
+         
+        >
+          HOMME
+  </button>
+
+
+
+   <button
+          className=" bg-yellow-400  border-solid border-zinc-400 border-2 rounded-lg px-3 hover:bg-yellow-100 "
+          type="button"
+           onClick={()=> {sortBy('femme')}} //évènement
+        >
+          FEMME
+    </button>
+      </div>
+      ```
+ 
