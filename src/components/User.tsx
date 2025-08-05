@@ -23,7 +23,8 @@ function User({ id,name,email,sexe,avatar}: Props) {
         <ul>
           <li>{name}</li>
           <li>{email}</li>
-          <li className=" w-1/2  text-center text-base text-fuchsia-600 bg-slate-50 border-zinc-200 border-2 rounded-lg hover:bg-slate-100">{sexe}</li>
+          <li className=" w-1/2  text-center text-base text-fuchsia-600 bg-slate-50 border-zinc-200 border-2 rounded-lg hover:bg-slate-100">
+          {sexe?.toUpperCase()}</li>
         </ul>
       ) : null}
     </div>
