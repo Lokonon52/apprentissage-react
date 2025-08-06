@@ -93,36 +93,31 @@ export default {
 @tailwind utilities;
 ```
 
- #### 5. Tester Tailwind CSS dans React
+#### 5. Tester Tailwind CSS dans React
+
 - -------La composantes Messages dans App.tsx---------------------------
 
- ```tsx
- import Messages from "./pages/Messages"
-import { Users } from "./pages/Users"
-import { TEXTES, USERS } from "./utils/data"
+```tsx
+import Messages from "./pages/Messages";
+import { Users } from "./pages/Users";
+import { TEXTES, USERS } from "./utils/data";
 
 function App() {
-  
-
   return (
-<div className="container mx-auto  bg-slate-400">
- 
-  <Messages messages={TEXTES} />
+    <div className="container mx-auto  bg-slate-400">
+      <Messages messages={TEXTES} />
 
-  <Users users={USERS}/>
-  
-</div>
-
-  )
+      <Users users={USERS} />
+    </div>
+  );
 }
 
-export default App
+export default App;
+```
 
- ```
+## 4. Destructurer les Objects
 
- ## 4. Destructurer les Objects
 ```tsx
-
 type Props = {
   firstname?: string;
   lastname?: string;
@@ -132,7 +127,14 @@ type Props = {
   favoriteFruit?: string;
 };
 
-function Message({ firstname, lastname, age, email, texte, favoriteFruit='inconnue' }: Props) {
+function Message({
+  firstname,
+  lastname,
+  age,
+  email,
+  texte,
+  favoriteFruit = "inconnue",
+}: Props) {
   return (
     <div className="border-red-300 border-solid border-4">
       <h4>{texte}</h4>
@@ -157,21 +159,20 @@ function Message({ firstname, lastname, age, email, texte, favoriteFruit='inconn
 export default Message;
 ```
 
- ## 5. Gestion  des évènements
- ```tsx
+## 5. Gestion des évènements
 
-
-type Sexe="homme"|"femme";
+```tsx
+type Sexe = "homme" | "femme";
 
 type Props = {
   id?: number;
   name?: string;
   email?: string;
-  sexe?:Sexe;
+  sexe?: Sexe;
   avatar?: string;
 };
 
-function User({ id,name,email,sexe,avatar}: Props) {
+function User({ id, name, email, sexe, avatar }: Props) {
   return (
     <div className="bg-zinc-50 border-zinc-200 border-2 rounded-lg text-zinc-800 items-center flex justify-evenly">
       {avatar ? (
@@ -185,20 +186,21 @@ function User({ id,name,email,sexe,avatar}: Props) {
         <ul>
           <li>{name}</li>
           <li>{email}</li>
-          <li className=" w-1/2  text-center text-base text-fuchsia-600 bg-slate-50 border-zinc-200 border-2 rounded-lg hover:bg-slate-100">{sexe}</li>
+          <li className=" w-1/2  text-center text-base text-fuchsia-600 bg-slate-50 border-zinc-200 border-2 rounded-lg hover:bg-slate-100">
+            {sexe}
+          </li>
         </ul>
       ) : null}
     </div>
   );
 }
 export default User;
+```
 
+## 6. useState
 
- ``` 
-
- ## 6. useState
- ```tsx
- import { useState } from "react";
+```tsx
+import { useState } from "react";
 import User from "../components/User";
 
 type Sexe = "homme" | "femme";
@@ -264,8 +266,168 @@ export const Users = ({ users }: Props) => {
     </main>
   );
 };
+```
 
- ```
- * Tu utilises une variable locale let usersSorted = users; → elle ne met pas à jour l’affichage (pas réactif).
+- Tu utilises une variable locale let usersSorted = users; → elle ne met pas à jour l’affichage (pas réactif).
 
-* Il faut utiliser useState pour que React mette à jour le DOM après le tri.
+- Il faut utiliser useState pour que React mette à jour le DOM après le tri.
+
+## 6. Navigation des routes
+
+### 1. Configuration des routes
+
+- Le lien de librairie qui permet de faire la navigation dans une composante react `React Router`
+  [https://reactrouter.com/](https://reactrouter.com/).
+- Start Here
+- getting Starting
+- Aller vers la version 6.X.X puis start/tutorial
+  ou bien
+  👉 Lien direct vers l'installation :
+  🔗 [https://reactrouter.com/en/main/start/tutorial] (https://reactrouter.com/en/main/start/tutorial)
+
+## ✅ Étapes pour ajouter `react-router-dom` avec Vite + React + TypeScript
+
+Voici les étapes **claires et à jour (v7+)** pour utiliser React Router dans ton projet.
+
+---
+
+### 📦 1. Installer React Router DOM
+
+Dans ton terminal, à la racine du projet :
+
+```bash
+npm install react-router-dom@7.7.1
+```
+
+Pas besoin de `@types/react-router-dom`, les types sont inclus dans v7+ ✅
+
+---
+
+### 🗂️ 2. Structure recommandée de ton projet
+
+```
+src/
+├── main.tsx
+├── App.tsx
+├── pages/
+    ├── Routes.tsx  (Un conteneur pour toutes les routes imbriquées à l'intérieur de / )
+│   ├── Home.tsx
+│   └── About.tsx
+```
+
+---
+
+### ⚙️ 3. Configuration dans `main.tsx`
+
+```tsx
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import Routes from "./pages/Routes.tsx";
+import { Users } from "./pages/Users.tsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Routes />, // Layout principal
+    children: [
+      {
+        path: "/", // ou index: true,
+        element: <Users />, // sous-route injectée dans <Outlet />
+      },
+    ],
+  },
+]);
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>
+);
+```
+
+---
+
+### 💡 4. Exemple de navigation dans `Routes.tsx`
+
+```tsx
+import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar";
+
+function Routes() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-1 px-4 py-8">
+        {/* footer reste collé en bas de la page, même quand le contenu principal (<main>) est trop court*/}
+        <Outlet />
+      </main>
+      <footer className="text-center text-gray-500 py-4 bg-slate-500 text-white">
+        BilokDev © 2025
+      </footer>
+    </div>
+  );
+}
+
+export default Routes;
+```
+
+- ➤ Routes.tsx est un layout principal pour ta route /.
+  Il agit comme un conteneur pour toutes les routes imbriquées à l'intérieur de /.
+
+- ➤ Outlet = Emplacement où s'affichent les sous-routes
+
+---
+
+### 📄 5. Exemple de composant `Navbar.tsx` dans /components.tsx
+
+```tsx
+import { Link } from "react-router-dom";
+
+const Navbar = () => {
+  return (
+    <header className="bg-blue-600 text-white shadow-md">
+      <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="text-xl font-bold">
+          <Link to="/">MonApp</Link>
+        </div>
+        <ul className="flex space-x-6">
+          <li>
+            <Link to="/" className="hover:underline">
+              Users
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className="hover:underline">
+              À propos
+            </Link>
+          </li>
+          <li>
+            <Link to="/messages" className="hover:underline">
+              Messages
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
+
+export default Navbar;
+```
+
+### 📄 6.  Exemple de composant  `About.tsx`
+
+```tsx
+const About = () => {
+  return (
+    <div className="text-center text-xl mt-10">
+      <h1 className="text-2xl font-bold">À propos</h1>
+      <p>Cette application a été créée par BilokDev.</p>
+    </div>
+  );
+};
+
+export default About;
+```

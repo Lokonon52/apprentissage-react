@@ -1,5 +1,6 @@
 import { useState } from "react";
 import User from "../components/User";
+import {  USERS } from "../utils/data/index"
 
 type Sexe = "homme" | "femme";
 
@@ -10,18 +11,13 @@ export type UserType = {
   sexe?: Sexe;
   avatar: string;
 };
-
-type Props = {
-  users: UserType[];
-};
-
-export const Users = ({ users }: Props) => {
+export const Users = () => {
   // État local pour stocker les utilisateurs triés
-  const [usersSorted, setUsersSorted] = useState<UserType[]>([...users]);
+  const [usersSorted, setUsersSorted] = useState<UserType[]>([...USERS]);
   //const [userFiltered, setUserFiltered] = useState<UserType[]>([...users]);
   // Fonction de tri par sexe
   const sortBySex = (sexeChoisi: Sexe) => {
-    const sortedS = [...users].sort((a: UserType, b: UserType) => {
+    const sortedS = [...USERS].sort((a: UserType, b: UserType) => {
       if (a.sexe === sexeChoisi && b.sexe !== sexeChoisi) return -1;
       if (a.sexe !== sexeChoisi && b.sexe === sexeChoisi) return 1;
       return 0;
@@ -30,7 +26,7 @@ export const Users = ({ users }: Props) => {
   };
   //Fonction de tri nom
   const sortByNom = () => {
-    const sortedN = [...users].sort((a: UserType, b: UserType) => {
+    const sortedN = [...USERS].sort((a: UserType, b: UserType) => {
       if (a.name.trim().toLowerCase() < b.name.trim().toLowerCase()) return -1;
       if (a.name.trim().toLowerCase() > b.name.trim().toLowerCase()) return 1;
       return 0;
@@ -38,17 +34,18 @@ export const Users = ({ users }: Props) => {
     setUsersSorted(sortedN); // Mise à jour de l'état => déclenche le rendu
   };
   //Fonction de filtre  par nom
+  const [allUsers] = useState<UserType[]>([...USERS]);
   const filterName = (inputValue: string) => {
     if (inputValue.trim()==='') {
-       setUsersSorted([...users])
+       setUsersSorted([...USERS])
       }
       else{ 
-       let filterTab = [...users].filter((user: UserType) => {
+       let filterTab = allUsers.filter((user: UserType) => {
       return user.name.trim().toLowerCase().includes(inputValue.toLowerCase())});
     setUsersSorted(filterTab)}
     };
   return (
-    <main>
+    <main >
       <nav className="flex  flex-col md:flex-row   items-center justify-between max-w-screen-lg  ">
         <div className="">
           <input
@@ -56,7 +53,7 @@ export const Users = ({ users }: Props) => {
             type="text"
             name="Search"
             placeholder="Chercher un nom"
-            className="block w-full max-w-md md:w-96 px-2 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400  sm:text-sm/6"
+            className="block w-full max-w-md md:w-96 px-2  ml-5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400  sm:text-sm/6"
             onChange={(e) => filterName(e.target.value)}
           />
         </div>
@@ -86,7 +83,7 @@ export const Users = ({ users }: Props) => {
         </div>
       </nav>
 
-      <section className="grid gap-3 text-black sm:grid-cols-1 md:grid-cols-2 mb-10">
+      <section className="   container mx-auto mt-16 gap-4 grid gap-3 text-black sm:grid-cols-1 md:grid-cols-2 mb-10">
         {usersSorted.map(({ id, name, email, sexe, avatar }: UserType) => (
           <User
             key={id}

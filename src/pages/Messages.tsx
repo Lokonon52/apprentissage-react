@@ -1,4 +1,5 @@
 import Message from "../components/Message";
+import {TEXTES} from "../utils/data/index";
 
 type Message = {
    id: string;
@@ -6,12 +7,11 @@ type Message = {
    favoriteFruit?:string;
  
 };
-type Props = {
-messages:Message[]
-};
+let messages:Message[]=TEXTES
 
 
-function Messages({ messages}: Props) {
+
+function Messages() {
    // const { messages}=props
   return (
     <div className="mb-32">
