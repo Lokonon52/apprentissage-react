@@ -272,7 +272,7 @@ export const Users = ({ users }: Props) => {
 
 - Il faut utiliser useState pour que React mette à jour le DOM après le tri.
 
-## 6. Navigation des routes
+## 7. Navigation des routes
 
 ### 1. Configuration des routes
 
@@ -432,7 +432,7 @@ const About = () => {
 
 export default About;
 ```
-## 7. UseEffet
+## 8. UseEffet
 D’accord 👍
 Je vais t’expliquer **`useEffect`** en React JS simplement, avec un petit peu de théorie et un exemple concret.
 
@@ -531,6 +531,8 @@ export default function App() {
 ```
 
 ---
+
+
 
 ## ⚠️ À retenir
 
