@@ -64,7 +64,7 @@ const TEXTES=[
 ]
 
 
-import type { UserType } from "../../pages/Users";
+import type { UserType } from "../../pages/users/Users";
 const USERS:UserType[] = [
   {
     id: 1,

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 
 type Sexe="homme"|"femme";
 
@@ -8,6 +9,8 @@ type Props = {
   sexe?:Sexe;
   avatar?: string;
 };
+
+
 
 function User({ id,name,email,sexe,avatar}: Props) {
   return (
@@ -27,6 +30,7 @@ function User({ id,name,email,sexe,avatar}: Props) {
           {sexe?.toUpperCase()}</li>
         </ul>
       ) : null}
+      
     </div>
   );
 }

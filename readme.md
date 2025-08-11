@@ -391,6 +391,7 @@ const Navbar = () => {
       <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="text-xl font-bold">
           <Link to="/">MonApp</Link>
+          
         </div>
         <ul className="flex space-x-6">
           <li>
@@ -431,3 +432,110 @@ const About = () => {
 
 export default About;
 ```
+## 7. UseEffet
+D’accord 👍
+Je vais t’expliquer **`useEffect`** en React JS simplement, avec un petit peu de théorie et un exemple concret.
+
+---
+
+## 📌 Qu’est-ce que `useEffect` ?
+
+`useEffect` est un **hook** de React qui te permet d’exécuter du code **après** que ton composant ait été rendu (affiché ou mis à jour).
+En gros, c’est pour gérer **les effets secondaires** comme :
+
+* Récupérer des données depuis une API (**fetch**)
+* Mettre à jour le `document.title`
+* Démarrer ou arrêter un timer
+* Écouter un événement du clavier ou de la souris
+
+---
+
+## 📜 Syntaxe de base
+
+```jsx
+import { useEffect } from "react";
+
+useEffect(() => {
+  // Code à exécuter après le rendu
+});
+```
+
+---
+
+## 🔍 Les 3 cas d’utilisation selon le 2ᵉ argument
+
+`useEffect` prend **deux arguments** :
+
+1. Une **fonction** → le code à exécuter.
+2. Un **tableau de dépendances** → pour dire à React quand exécuter la fonction.
+
+---
+
+### **1️⃣ Sans tableau de dépendances**
+
+```jsx
+useEffect(() => {
+  console.log("Composant rendu ou mis à jour");
+});
+```
+
+💡 S’exécute **après chaque rendu** (montage + mise à jour).
+
+---
+
+### **2️⃣ Tableau vide `[]`**
+
+```jsx
+useEffect(() => {
+  console.log("Composant monté une seule fois");
+}, []);
+```
+
+💡 S’exécute **une seule fois** au montage du composant (idéal pour un `fetch` initial).
+
+---
+
+### **3️⃣ Avec des dépendances**
+
+```jsx
+useEffect(() => {
+  console.log(`Le compteur est maintenant ${count}`);
+}, [count]);
+```
+
+💡 S’exécute **uniquement** quand `count` change.
+
+---
+
+## 💻 Exemple complet
+
+```jsx
+import { useState, useEffect } from "react";
+
+export default function App() {
+  const [count, setCount] = useState(0);
+
+  // Change le titre de la page quand count change
+  useEffect(() => {
+    document.title = `Compteur : ${count}`;
+    console.log("useEffect exécuté");
+  }, [count]);
+
+  return (
+    <div>
+      <h1>Compteur : {count}</h1>
+      <button onClick={() => setCount(count + 1)}>+1</button>
+    </div>
+  );
+}
+```
+
+---
+
+## ⚠️ À retenir
+
+* **Sans tableau** → à chaque rendu.
+* **\[] vide** → une seule fois au montage.
+* **\[dépendances]** → uniquement quand elles changent.
+* Toujours nettoyer les effets (ex : timers, écouteurs) avec `return () => { ... }` dans le `useEffect`.
+
